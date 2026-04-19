@@ -40,6 +40,9 @@
 
 ###
 
-<h3 align="left">🔥   What has been covered :<br><br>- Output    -> Online chatbot<br>- Frontend -> Flutter Framework<br>- Backend  -> Gemini API</h3>
+<h3 align="left">🔥   What has been covered :<br><br></h3>
+<li>Output    -> Online chatbot<br></li>
+<li>Frontend -> Flutter Framework<br></li>
+<li>Backend  -> Gemini API</li>
 
 ###
