@@ -136,12 +136,78 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
     );
   }
-}
 
-Widget _buildChatBubble(String text, bool isUserMessage) {
-  return Align();
-}
+  Widget _buildChatBubble(String text, bool isUserMessage) {
+    return Align(
+      alignment: isUserMessage ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.75,
+        ),
 
-Widget _buildInputArea() {
-  return Container();
+        decoration: BoxDecoration(
+          color: isUserMessage ? Colors.blueAccent : Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: const Radius.circular(16),
+            topRight: const Radius.circular(16),
+            bottomLeft: Radius.circular(isUserMessage ? 16 : 0),
+            bottomRight: Radius.circular(isUserMessage ? 0 : 16),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 2,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: isUserMessage ? Colors.white : Colors.black,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInputArea() {
+    return Container(
+      child: SafeArea(
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _textController,
+                decoration: InputDecoration(
+                  hintText: "Type your message...",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                    borderSide: BorderSide.none,
+                  ),
+                  fillColor: Colors.grey[200],
+                  filled: true,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                ),
+                onSubmitted: (value) => _sendMessage(),
+              ),
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            CircleAvatar(
+              backgroundColor: Colors.blueAccent,
+              child: IconButton(
+                icon: Icon(Icons.send, color: Colors.white),
+                onPressed: _sendMessage,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
