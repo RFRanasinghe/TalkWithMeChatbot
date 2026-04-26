@@ -127,7 +127,7 @@ UI rebuilds — reply appears in chat ✅
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/sewminiranasinghe/geminichat.git
+git clone https://github.com/RFRanasinghe/TalkWithMeChatbot.git
 cd geminichat
 
 # 2. Install dependencies
