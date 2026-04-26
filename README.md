@@ -4,7 +4,7 @@
 
 <div align="center">
 
-# 🤖 GeminiChat — AI Chatbot App
+# 🤖 TalkWithMeChatbot — AI Online Chatbot App
 
 **A Flutter-powered conversational AI assistant driven by Google's Gemini API**
 
@@ -20,7 +20,7 @@
 
 ## 📌 Project Overview
 
-GeminiChat is a **real-time AI chatbot mobile application** built with Flutter that leverages Google's **Gemini Generative Language API** to deliver intelligent, context-aware conversational responses. Users can interact with the AI directly through a clean chat interface — just type and get instant AI-powered replies.
+TalkWithMeChatbot is a **real-time AI chatbot mobile application** built with Flutter that leverages Google's **Gemini Generative Language API** to deliver intelligent, context-aware conversational responses. Users can interact with the AI directly through a clean chat interface — just type and get instant AI-powered replies.
 
 > **In short:** You type → Gemini thinks → You get a smart answer. All inside a Flutter app.
 
