@@ -38,10 +38,14 @@ class _ChatScreenState extends State<ChatScreen> {
   final ScrollController _scrollController = ScrollController();
   bool _isLoading = false;
 
-  static const String _apiKey = 'AIzaSyAn3A9bRjLfYUYkXLoPDMd0CJO60iR-CrI';
+  static const String _apiKey = 'YOUR_API_KEY_HERE';
 
-  //Initialize Gemini Model
-  final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: _apiKey);
+  //Initialize Gemini Model (free tier) - use v1 API
+  final model = GenerativeModel(
+    model: 'gemini-2.5-flash',
+    apiKey: _apiKey,
+    generationConfig: GenerationConfig(temperature: 0.9),
+  );
 
   //function to send message to Gemini (Backend)
   void _sendMessage() async {
@@ -68,11 +72,11 @@ class _ChatScreenState extends State<ChatScreen> {
         _isLoading = false;
       });
     } catch (e) {
+      print("Gemini Error: $e");
+      debugPrint("Gemini Error: $e");
+
       setState(() {
-        _messages.add({
-          "sender": "bot",
-          "text": "Error : Check your API key or connection",
-        });
+        _messages.add({"sender": "bot", "text": "Error : $e"});
         _isLoading = false;
       });
     }
@@ -195,9 +199,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 onSubmitted: (value) => _sendMessage(),
               ),
             ),
-            SizedBox(
-              width: 8,
-            ),
+            SizedBox(width: 8),
             CircleAvatar(
               backgroundColor: Colors.blueAccent,
               child: IconButton(
